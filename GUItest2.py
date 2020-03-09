@@ -15,7 +15,6 @@ type_of_accounting_selected =["Single Line", "DDB", "SOYD", "ABC","MACRS",]
 bg_color = "SlateBlue"; bg_color2 = "SlateBlue1"; bg_color3 = "RoyalBlue1"
 
 
-sizex = 200
 def gui_run():    
     root = Tk()  # main box 
     root.title("Number cruncher")
@@ -40,6 +39,7 @@ def gui_run():
     # widgets
     k = ""
     def labels_made(i):
+        k = stats_tracking_list
         k = Label(top_frame, text=stats_tracking_list[i], pady=1, bg=bg_color3, font="Helvetica 18 ",relief="raised", borderwidth=3)
         k.grid(row=i + 1, column=0, sticky="e")
         return(i)
@@ -51,6 +51,7 @@ def gui_run():
         return(i)
 
     def mode_made(i):
+        k = stats_tracking_list
         k = Label(top_frame, text=stats_tracking_list[i], pady=1, bg=bg_color3, font="Helvetica 18 ",relief="raised", borderwidth=3)
         k.grid(row=i + 1, column=0, sticky="e")
         k = Spinbox(top_frame, value=(type_of_accounting_selected), width=10, font="ariel, 16",relief="raised", borderwidth=3, )
@@ -71,7 +72,7 @@ def gui_run():
             
             return(i)
 
-    for i in range(int(len(stats_tracking_list))):
+    for i, value in enumerate(stats_tracking_list):
         i = labels_made(i)        
         if i <= 3: #this is for 4 lines of entrys.
             i = entries_made(i)
