@@ -21,7 +21,7 @@ def gui_run():
     root.grid_rowconfigure(index=0, weight=1, )
     root.grid_columnconfigure(index=0, weight=1,)
 
-    # first frame
+    # First frame
     base_frame = Frame(root, bg=bg_color,)
     base_frame.grid_rowconfigure(index=1, weight=1, )
     base_frame.grid_columnconfigure(index=1, weight=1, )
