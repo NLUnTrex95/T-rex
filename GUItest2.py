@@ -15,7 +15,7 @@ type_of_accounting_selected =["Single Line", "DDB", "SOYD", "ABC","MACRS",]
 bg_color = "SlateBlue"; bg_color2 = "SlateBlue1"; bg_color3 = "RoyalBlue1"
 
 def gui_run():    
-    root = Tk()  # main box 
+    root = Tk()  # Main box 
     root.title("Number cruncher")
     root.geometry('523x310')
     root.grid_rowconfigure(index=0, weight=1, )
