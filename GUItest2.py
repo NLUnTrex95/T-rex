@@ -26,7 +26,7 @@ def gui_run():
     base_frame.grid_rowconfigure(index=1, weight=1, )
     base_frame.grid_columnconfigure(index=1, weight=1, )
     base_frame.grid(sticky="n,s,e,w", )
-    # Seccond frame.
+    # Second frame.
     top_frame = Frame(base_frame, bg=bg_color, relief="raised", borderwidth=10, width=800)
     top_frame.grid(row=1, column=1, sticky="")
     # Frame for check box.
@@ -241,31 +241,19 @@ def MACRS():
              .15, .34, .204, .1224, .1130, .0706, .1071, .2551, .1822, .1302, .0930, .0885, .0886, .0553,  ##MQ, Q3
              .05, .038, .228, .1368, .1094, .0958, .0357, .2755, .1968, .1406, .1004, .0873, .0873, .0764]  ##MQ, Q4
     conv = 1 #Convention auto-filled in lieu of user input
-    quart = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
-    if conv == 1:
-        if deplist[2] == 5:
-            m = 0
-        elif deplist[2] == 7:
-            m = 6
-    elif conv == 2:
-        if deplist[2] == 5:
-            if deplist[3] in quart[0]:
-                m = 14
-            elif deplist[3] in quart[1]:
-                m = 28
-            elif deplist[3] in quart[2]:
-                m = 42
-            elif deplist[3] in quart[3]:
-                m = 56
-        elif deplist[2] == 7:
-            if deplist[3] in quart[0]:
-                m = 20
-            elif deplist[3] in quart[1]:
-                m = 34
-            elif deplist[3] in quart[2]:
-                m = 48
-            elif deplist[3] in quart[3]:
-                m = 62
+    m = 0 if deplist[2] == 5 else 6 
+	quart = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+	MList = [[20,34,48,62],[14,28,42,56]]
+	if deplist[2] == 5:
+  		for x in range(0,3)
+    		if deplist[2] in quart[x]:
+      		m = MList[0[x]]
+	elif deplist[2] == 7:
+  		for x in range(0,3)
+    	if deplist[2] in quart[x]:
+      		m = MList[1[x]]
+	else:
+  		root.mainloop
     for s in range(0, deplist[2]):
         LastYear(s)
         depout[s] = MACRS[m] * deplist[0]
