@@ -9,6 +9,7 @@ if the method is Activity Based:
   Activity in year 2:[      ] < "
   ...
   Activity in year 5:[      ] < "
+  Also: Create a box asking for the total allocation base.
 if the method is MACRS:
   Create an option for the user to click either "Half Year Convention" or "Mid Quarter Convention". 
   Preferably a multiple choice, but eh.
