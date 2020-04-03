@@ -169,11 +169,11 @@ def MACRS():
     	m = 0 if deplist[2] == 5 else 6 
     elif conv == "Mid Quarter":
       if deplist[2] == 5:
-        for x in range(0,3)
+        for x in range(0,3):
           if deplist[2] in quart[x]:
             m = MList[0[x]]
       elif deplist[2] == 7:
-          for x in range(0,3)
+          for x in range(0,3):
           if deplist[2] in quart[x]:
               m = MList[1[x]]
     else:
