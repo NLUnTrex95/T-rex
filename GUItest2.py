@@ -52,8 +52,7 @@ def FractionalYears():
 
     yearmult = (13 - deplist[3])
     if deplist[4] != 1:
-        yearmult -= round((MonthDayNumbers(deplist[3]) - deplist[4]) / MonthDayNumbers(deplist[3]),
-                          2)  ##Check whether it's += or -=...?
+        yearmult -= round((MonthDayNumbers(deplist[3]) - deplist[4]) / MonthDayNumbers(deplist[3]),2)  ##Check whether it's += or -=...?
     yearmult /= 12
     yearmult = round(yearmult, 2)
     if deplist[5] == "Straight Line" or deplist[5] == "SOYD":
@@ -121,8 +120,7 @@ def StraightLine():
 def DoubleDeclining():
     for s in range(0, deplist[2]):  ## class posibly. In all formats.
         LastYear(s)
-        depout[s] = nbvout[s] * (
-                    2 / deplist[2])  ##Moved this to below the previous phrase. We can't multiply nothing ;D
+        depout[s] = nbvout[s] * (2 / deplist[2])  ##Moved this to below the previous phrase. We can't multiply nothing ;D
         if s == 0 and (deplist[3] != 1 or deplist[4] != 1):
             depout[s] *= FractionalYears()
         Increment(s)
