@@ -196,9 +196,8 @@ def MACRS():
     return output
 
 
-running = True  ## Relocate this.
 ##The Main Program Area
-while running:
+while True:
     if deplist[5] == "Straight Line":
         backout = StraightLine()
     elif deplist[5] == "DDB":
@@ -209,7 +208,7 @@ while running:
         backout = ActivityBased()
     elif deplist[5] == "MACRS":
         backout = MACRS()
-    print(backout)  ## this will post to new screen. Table.
+    print(backout)  ## This will post to new screen. We need to use a table.
     end = input("Press Enter")
 '''
 This is a sample backout list.
