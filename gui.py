@@ -3,31 +3,30 @@ test_dict = {}
 totals_dict = []
 entries = []
 stats_tracking_list =[
-    "Useful Life:", 
-    "Salvage Value:", 
     "Cost:",
-    "Number of years of usefull Life:",
-    "Day:",
+    "Salvage Value:",
+    "Useful Life (Years):",
     "Month:",
-    "type",
+    "Day:",
+    "Method:",
 ]
-type_of_accounting_selected =["Single Line", "DDB", "SOYD", "ABC","MACRS",]
+type_of_accounting_selected =["Straight Line", "DDB", "SOYD", "ABC","MACRS",]
 bg_color = "SlateBlue"; bg_color2 = "SlateBlue1"; bg_color3 = "RoyalBlue1"
 
 
 def gui_run():    
     root = Tk()  # main box 
-    root.title("Number cruncher")
+    root.title("Depreciation of Fixed Assets")
     root.geometry('523x310')
     root.grid_rowconfigure(index=0, weight=1, )
     root.grid_columnconfigure(index=0, weight=1,)
 
-    # first frame
+    # First frame
     base_frame = Frame(root, bg=bg_color,)
     base_frame.grid_rowconfigure(index=1, weight=1, )
     base_frame.grid_columnconfigure(index=1, weight=1, )
     base_frame.grid(sticky="n,s,e,w", )
-    # Seccond frame.
+    # Second frame.
     top_frame = Frame(base_frame, bg=bg_color, relief="raised", borderwidth=10, width=800)
     top_frame.grid(row=1, column=1, sticky="")
     # Frame for check box.
@@ -36,7 +35,7 @@ def gui_run():
     #Spacer row,0 column,1
     spacer_frame = Frame(top_frame, bg=bg_color, relief="raised", borderwidth=10, width=10)
     spacer_frame.grid(row=0, column=1, rowspan=6,)
-    # widgets
+    # Widgets
     
     
     k = ""
@@ -76,11 +75,11 @@ def gui_run():
 
     for i, value in enumerate(stats_tracking_list):
         i = labels_made(i)        
-        if i <= 3: #this is for 4 lines of entrys.
+        if i <= 2: #this is for 3 lines of Entries.
             i = entries_made(i)
-        elif i == 6:
+        elif i == 5:
             i = mode_made(i)
-        elif i == 4 or 5:
+        elif i == 3 or 4:
             i = spin_box_made(i)    
 
     def fra_clear():
@@ -88,10 +87,8 @@ def gui_run():
         screen_two()
 
     def entries_get():
-        
         for i, entry in enumerate(entries): 
             test_dict[stats_tracking_list[i]] = entry.get()
-
         print(test_dict)
         screen_two()
         
@@ -102,16 +99,6 @@ def gui_run():
     k = Button(top_frame,text="Calculate!", bg=bg_color2, command=entries_get, font=14, width=8,)
     k.grid(row=(len(stats_tracking_list) + len(type_of_accounting_selected) + 2), column=2, sticky="e", padx=0,)
 
-    def converter():
-        test_dict
-
-
-    def checker():
-        for key, value in test_dict.items():
-            c = value
-            if isinstance(c,int) == False:
-                print("entry error")
-                #root.main()
 
     def screen_two():
         screen_two = Frame(base_frame, bg="gray", relief="raised", borderwidth=10, width=800,)
